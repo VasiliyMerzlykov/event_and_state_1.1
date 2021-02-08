@@ -56,26 +56,23 @@ let store = [{
 }]
 
 export default function Portfolio() {
-    
     const [state, setstate] = React.useState(store);
 
-    let item = store.filter(item => item.category === state);
+    let item = store.filter(item => item.category === state.value);
 
     let elem = item.length === 0 ? store : item;
-
-    let selected = state;
 
     let filters= ["All", "Websites", "Flayers", "Business Cards"]
 
     let onSelectFilter = (e) =>{
-        setstate(e);
+        setstate(e.target);
     };
 
     return (
         <div>
             <Toolbar 
             onSelectFilter={onSelectFilter}
-            selected = {selected}
+            // selected = {selected}
             filters = {filters}/>
             {elem.map(item => <ProjectList img={item.img} />)}            
         </div>
