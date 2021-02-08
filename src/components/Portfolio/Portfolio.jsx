@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import ProjectList from './ProjectList/ProjectList';
-import Toolbar from './Toolbar/Toolbar'
+import Toolbar from './Toolbar/Toolbar';
 
 let store = [{
     img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
@@ -53,7 +53,7 @@ let store = [{
 }, {
     img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
     category: "Flayers"
-}]
+}];
 
 export default function Portfolio() {
     const [state, setstate] = React.useState(store);
@@ -62,7 +62,9 @@ export default function Portfolio() {
 
     let elem = item.length === 0 ? store : item;
 
-    let filters= ["All", "Websites", "Flayers", "Business Cards"]
+    let selected = state.value;
+
+    let filters = ["All", "Websites", "Flayers", "Business Cards"];
 
     let onSelectFilter = (e) =>{
         setstate(e.target);
@@ -72,13 +74,12 @@ export default function Portfolio() {
         <div>
             <Toolbar 
             onSelectFilter={onSelectFilter}
-            // selected = {selected}
+            selected = {selected}
             filters = {filters}/>
             {elem.map(item => <ProjectList img={item.img} />)}            
         </div>
-    )
-}
-
+    );
+};
 
 
 // import React from 'react'
