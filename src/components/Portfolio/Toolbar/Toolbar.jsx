@@ -3,13 +3,14 @@ import "./Toolbar.css";
 
 
 export default function Toolbar(props) {
-    const selectFilter = (e) => {
-        props.onSelectFilter(e)
-    };
+
+
+    let {filters, selected} = props
 
     return (
         <div>
-            {props.filters.map(item => <button onClick={selectFilter} value = {`${item}`}>{`${item}`}</button>)}
+            {filters.map(item => 
+            <button className ={selected === item ? "filter" : "activFilter"} onClick ={() => props.onSelectFilter(item) } value = {`${item}`}>{`${item}`}</button>)}
         </div>
     );
 };

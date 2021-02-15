@@ -58,7 +58,7 @@ let store = [{
 export default function Portfolio() {
     const [state, setstate] = React.useState(store);
 
-    let item = store.filter(item => item.category === state.value);
+    let item = store.filter(item => item.category === state);
 
     let elem = item.length === 0 ? store : item;
 
@@ -67,7 +67,7 @@ export default function Portfolio() {
     let filters = ["All", "Websites", "Flayers", "Business Cards"];
 
     let onSelectFilter = (e) =>{
-        setstate(e.target);
+        setstate(e);
     };
 
     return (
